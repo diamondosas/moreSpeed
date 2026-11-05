@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math/rand/v2"
-	"runtime"
 	"sync"
 	"time"
 
@@ -69,6 +68,9 @@ func updateProcesses(w *gui.Window){
 						// 
 					for i := range app.Processes{
 						noOfProg := getNoOfProg()
+						if(app.Processes[i].Name == programs[noOfProg]){
+							noOfProg = getNoOfProg()
+						}
 						fmt.Println("Put this ", programs[noOfProg])
 						app.Processes[i].Name = programs[noOfProg]
 						fmt.Println("Putted:", app.Processes[i].Name)
